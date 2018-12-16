@@ -1,0 +1,36 @@
+project User_Project is
+
+   for Source_Dirs use ("src");
+   for Object_Dir use "obj";
+   for Main use ("main.adb");
+   for Exec_Dir use ".";
+
+   type BUILD_TYPE is ("Debug", "Production");
+   Build : BUILD_Type := external ("BUILD", "Debug");
+
+   package Configuration is
+
+      for Package_Name use "My_Config";
+
+      for Config_Type ("Address") use "String";
+      for Config_Value ("Address") use external ("Address", "example.com");
+
+      for Config_Type ("Mode") use "Enum Mode1, Mode2, Mode3";
+      for Config_Value ("Mode") use external ("Mode", "Mode1");
+
+      for Config_Type ("Buffer_Size") use "Integer range 1 .. 4096";
+      for Config_Value ("Buffer_Size") use external ("Buffer_Size", "256");
+
+      for Config_Type ("Brightness") use "Real range 0.0 .. 1.0";
+      for Config_Value ("Brightness") use external ("Brightness", "0.6");
+
+      for Config_Type ("Verbose") use "Boolean";
+
+      case Build is
+         when "Debug" =>
+            for Config_Value ("Verbose") use "True";
+         when "Production" =>
+            for Config_Value ("Verbose") use "False";
+      end case;
+   end Configuration;
+end User_Project;
