@@ -15,7 +15,7 @@ Programing Studio IDE and re-use of features such as scenario variable.
 
 # Syntax
 
-This POC uses only two attributes in a `Configuration` package:
+This POC uses two attributes in a `Configuration` package:
 
  - `for Config_Type ("<NAME>") use "<TYPE>";`: defines the type used for the
    configuration key <NAME>
@@ -61,7 +61,7 @@ Application:
 ```
 # Example
 
-This examples covers most of the features implemented in the POC.
+This example covers most of the features implemented in the POC.
 
 Project file:
 ```
