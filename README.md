@@ -57,14 +57,14 @@ Application:
      is range Config.Buffer_Size_First .. Config.Buffer_Size_Last
      with Size => 16;
 
-   Buffer_Size : constant Buffer_Size_Type:= Buffer_Size_Type (Config.Buffer_Size);
+   Buffer_Size : constant Buffer_Size_Type := Config.Buffer_Size;
 ```
 # Example
 
 This example covers most of the features implemented in the POC.
 
 Project file:
-```
+```ada
 project User_Project is
 
    type BUILD_TYPE is ("Debug", "Production");
